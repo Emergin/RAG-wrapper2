@@ -122,7 +122,7 @@ def render_chat_ui():
     with col1:
         k = st.slider("Number of documents to retrieve", min_value=1, max_value=10, value=3)
     with col2:
-        model = st.selectbox("Model", ["gpt-3.5-turbo", "gpt-4"], index=0)
+        model = st.selectbox("Model", ["gemini-1.5-flash", "gemini-1.5-pro"], index=0)
     with col3:
         temperature = st.slider("Temperature", min_value=0.0, max_value=1.0, value=0.3, step=0.1)
     with col4:
@@ -251,11 +251,11 @@ def main():
         
         # OpenAI API Key input
         st.subheader("API Configuration")
-        api_key = st.text_input("OpenAI API Key", type="password")
+        api_key = st.text_input("Gemini API Key", type="password")
         if api_key:
-            os.environ["OPENAI_API_KEY"] = api_key
+            os.environ["GEMINI_API_KEY"] = api_key
             if st.session_state.rag_pipeline:
-                st.session_state.rag_pipeline.api_key = api_key
+                st.session_state.rag_pipeline.set_api_key(api_key)
             st.success("API Key set!")
         
         # About section

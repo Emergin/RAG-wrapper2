@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.git/
+.DS_Store
+*.zip
+*.tar
+*.gz
+large_data/
+notebooks/
+.venv/
+utils/__pycache__/
